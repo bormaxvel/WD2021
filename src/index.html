@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.sass">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=360, initial-scale=1">
+	<title>Shopping Cart</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" href="style.scss">
 </head>
+
 <body>
-    <H1>privet</H1>
+	<main class="main-container">
+
+		<section class="section">
+			<h2 class="text-center">Послуги по копірайту від Максима</h2>
+			<div class="products">
+				<div class="product">
+					<img class="product__image" src="img/1.png" alt="alt">
+					<h2 class="product__name">Ідея курсової</h2>
+					<h3 class="product__price">10.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/2.png" alt="alt">
+					<h2 class="product__name">Курсова</h2>
+					<h3 class="product__price">100.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/3.png" alt="alt">
+					<h2 class="product__name">Лабораторна</h2>
+					<h3 class="product__price">10.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/4.png" alt="alt">
+					<h2 class="product__name">Звичайне дз</h2>
+					<h3 class="product__price">5.50</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/5.png" alt="alt">
+					<h2 class="product__name">Усунути Нку</h2>
+					<h3 class="product__price">5.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+				<div class="product">
+					<img class="product__image" src="img/6.png" alt="alt">
+					<h2 class="product__name">Модуль Мат.</h2>
+					<h3 class="product__price">30.00</h3>
+					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<h2 class="text-center">Скільки треба грошиків</h2>
+			<div class="cart"></div>
+		</section>
+
+	</main>
+
+	<script src="main.js"></script>
 </body>
+
 </html>
