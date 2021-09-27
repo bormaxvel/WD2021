@@ -23,6 +23,7 @@ if (cart.length > 0) {
 	});
 }
 
+//кнопка додати в корзину
 addToCartButtonsDOM.forEach(addToCartButtonDOM => {
 	addToCartButtonDOM.addEventListener('click', () => {
 		const productDOM = addToCartButtonDOM.parentNode;
@@ -50,25 +51,42 @@ addToCartButtonsDOM.forEach(addToCartButtonDOM => {
 
 // Вставляння коду в корзину
 function insertItemToDOM(product) {
-	cartDOM.insertAdjacentHTML(
-		'beforeend',
-		`
-    <div class="cart__item">
-      <img class="cart__item__image" src="${product.image}" alt="${product.name}" >
-      <h3 class="cart__item__name">${product.name}</h3>
-      <h3 class="cart__item__price">${product.price}</h3>
-      <button class="btn btn--primary btn--small${product.quantity === 1 ? ' btn--danger' : ''}" data-action="DECREASE_ITEM">&minus;</button>
-      <h3 class="cart__item__quantity">${product.quantity}</h3>
-      <button class="btn btn--primary btn--small" data-action="INCREASE_ITEM">&plus;</button>
-      <button class="btn btn--danger btn--small" data-action="REMOVE_ITEM">&times;</button>
-    </div>
-  `
-	);
-
+	var fileName = location.href.split("/").slice(-1); 
+	if (fileName[0] === "cart.html"){
+		cartDOM.insertAdjacentHTML(
+			'beforeend',
+			`
+		<div class="cart__item">
+		  <img class="cart__item__image" src="${product.image}" alt="${product.name}" >
+		  <h3 class="cart__item__name">${product.name}</h3>
+		  <h3 class="cart__item__price">${product.price}</h3>
+		  <h3 class="cart__item__quantity">${product.quantity}</h3>
+		</div>
+	  `
+		);
+	}
+	else{
+		cartDOM.insertAdjacentHTML(
+			'beforeend',
+			`
+		<div class="cart__item">
+		  <img class="cart__item__image" src="${product.image}" alt="${product.name}" >
+		  <h3 class="cart__item__name">${product.name}</h3>
+		  <h3 class="cart__item__price">${product.price}</h3>
+		  <button class="btn btn--primary btn--small${product.quantity === 1 ? ' btn--danger' : ''}" data-action="DECREASE_ITEM">&minus;</button>
+		  <h3 class="cart__item__quantity">${product.quantity}</h3>
+		  <button class="btn btn--primary btn--small" data-action="INCREASE_ITEM">&plus;</button>
+		  <button class="btn btn--danger btn--small" data-action="REMOVE_ITEM">&times;</button>
+		</div>
+	  `
+		);
+		
+	}
+	
 	addCartFooter();
 }
 
-// Funtion to Handle Buttons in the cart
+// Yправління кнопками в кошику
 function handleActionButtons(addToCartButtonDOM, product) {
 	addToCartButtonDOM.innerText = 'In Cart';
 	addToCartButtonDOM.disabled = true;
@@ -128,21 +146,40 @@ function removeItem(product, cartItemDOM, addToCartButtonDOM) {
 	}
 }
 
-// додавання footer до кошика 
+// додавання кнопок до кошика 
 function addCartFooter() {
+	
 	if (document.querySelector('.cart-footer') === null) {
-		cartDOM.insertAdjacentHTML(
-			'afterend',
-			`
-      <div class="cart-footer">
-        <button class="btn btn--danger" data-action="CLEAR_CART">Clear Cart</button>
-        <button class="btn btn--primary" data-action="CHECKOUT">CHECKOUT</button>
-      </div>
-    `
-		);
+		var fileName = location.href.split("/").slice(-1); 
+		if (fileName[0] === "cart.html"){
+			cartDOM.insertAdjacentHTML(
+				'afterend',
+				`
+		  <div class="cart-footer">
+			<button class="btn btn--danger" data-action="CLEAR_CART">Clear Cart</button>
+			<button class="btn btn--back" data-action="BACK">Back</button>
+			<button class="btn btn--primary" data-action="CHECKOUT">CHECKOUT</button>
+		  </div>
+		`
+			);
+			document.querySelector('[data-action="BACK"]').addEventListener('click', () => back());
+		}
+		else{
+			cartDOM.insertAdjacentHTML(
+				'afterend',
+				`
+		  <div class="cart-footer">
+			<button class="btn btn--danger" data-action="CLEAR_CART">Clear Cart</button>
+			<button class="btn btn--primary" data-action="CHECKOUT">CHECKOUT</button>
+		  </div>
+		`
+			);
+		}
+		
 
 		document.querySelector('[data-action="CLEAR_CART"]').addEventListener('click', () => clearCart());
 		document.querySelector('[data-action="CHECKOUT"]').addEventListener('click', () => checkout());
+
 	}
 }
 
@@ -201,9 +238,22 @@ function checkout() {
 
 // Обчислення загальної суми
 function countCartTotal() {
-	let cartTotal = 0;
+	var fileName = location.href.split("/").slice(-1); 
+	if (fileName[0] === "cart.html"){
+		let cartTotal = 0;
 	cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
 	document.querySelector('[data-action="CHECKOUT"]').innerText = `Pay $${cartTotal}`;
+	}
+	else{
+		let cartTotal = 0;
+	cart.forEach(cartItem => (cartTotal += cartItem.quantity * cartItem.price));
+	document.querySelector('[data-action="CHECKOUT"]').innerText = `Checkout: $${cartTotal}`;
+	}
+	
+}
+
+function back(){
+	window.location.href = 'index.html';
 }
 
 // Збереження кошика в localStorage при змінах 

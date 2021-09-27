@@ -136,7 +136,8 @@ if (cart.length > 0) {
       }
     });
   });
-}
+} //кнопка додати в корзину
+
 
 addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
   addToCartButtonDOM.addEventListener('click', function () {
@@ -161,9 +162,16 @@ addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
 }); // Вставляння коду в корзину
 
 function insertItemToDOM(product) {
-  cartDOM.insertAdjacentHTML('beforeend', "\n    <div class=\"cart__item\">\n      <img class=\"cart__item__image\" src=\"".concat(product.image, "\" alt=\"").concat(product.name, "\" >\n      <h3 class=\"cart__item__name\">").concat(product.name, "</h3>\n      <h3 class=\"cart__item__price\">").concat(product.price, "</h3>\n      <button class=\"btn btn--primary btn--small").concat(product.quantity === 1 ? ' btn--danger' : '', "\" data-action=\"DECREASE_ITEM\">&minus;</button>\n      <h3 class=\"cart__item__quantity\">").concat(product.quantity, "</h3>\n      <button class=\"btn btn--primary btn--small\" data-action=\"INCREASE_ITEM\">&plus;</button>\n      <button class=\"btn btn--danger btn--small\" data-action=\"REMOVE_ITEM\">&times;</button>\n    </div>\n  "));
+  var fileName = location.href.split("/").slice(-1);
+
+  if (fileName[0] === "cart.html") {
+    cartDOM.insertAdjacentHTML('beforeend', "\n\t\t<div class=\"cart__item\">\n\t\t  <img class=\"cart__item__image\" src=\"".concat(product.image, "\" alt=\"").concat(product.name, "\" >\n\t\t  <h3 class=\"cart__item__name\">").concat(product.name, "</h3>\n\t\t  <h3 class=\"cart__item__price\">").concat(product.price, "</h3>\n\t\t  <h3 class=\"cart__item__quantity\">").concat(product.quantity, "</h3>\n\t\t</div>\n\t  "));
+  } else {
+    cartDOM.insertAdjacentHTML('beforeend', "\n\t\t<div class=\"cart__item\">\n\t\t  <img class=\"cart__item__image\" src=\"".concat(product.image, "\" alt=\"").concat(product.name, "\" >\n\t\t  <h3 class=\"cart__item__name\">").concat(product.name, "</h3>\n\t\t  <h3 class=\"cart__item__price\">").concat(product.price, "</h3>\n\t\t  <button class=\"btn btn--primary btn--small").concat(product.quantity === 1 ? ' btn--danger' : '', "\" data-action=\"DECREASE_ITEM\">&minus;</button>\n\t\t  <h3 class=\"cart__item__quantity\">").concat(product.quantity, "</h3>\n\t\t  <button class=\"btn btn--primary btn--small\" data-action=\"INCREASE_ITEM\">&plus;</button>\n\t\t  <button class=\"btn btn--danger btn--small\" data-action=\"REMOVE_ITEM\">&times;</button>\n\t\t</div>\n\t  "));
+  }
+
   addCartFooter();
-} // Funtion to Handle Buttons in the cart
+} // Yправління кнопками в кошику
 
 
 function handleActionButtons(addToCartButtonDOM, product) {
@@ -230,12 +238,22 @@ function removeItem(product, cartItemDOM, addToCartButtonDOM) {
   if (cart.length < 1) {
     document.querySelector('.cart-footer').remove();
   }
-} // додавання footer до кошика 
+} // додавання кнопок до кошика 
 
 
 function addCartFooter() {
   if (document.querySelector('.cart-footer') === null) {
-    cartDOM.insertAdjacentHTML('afterend', "\n      <div class=\"cart-footer\">\n        <button class=\"btn btn--danger\" data-action=\"CLEAR_CART\">Clear Cart</button>\n        <button class=\"btn btn--primary\" data-action=\"CHECKOUT\">CHECKOUT</button>\n      </div>\n    ");
+    var fileName = location.href.split("/").slice(-1);
+
+    if (fileName[0] === "cart.html") {
+      cartDOM.insertAdjacentHTML('afterend', "\n\t\t  <div class=\"cart-footer\">\n\t\t\t<button class=\"btn btn--danger\" data-action=\"CLEAR_CART\">Clear Cart</button>\n\t\t\t<button class=\"btn btn--back\" data-action=\"BACK\">Back</button>\n\t\t\t<button class=\"btn btn--primary\" data-action=\"CHECKOUT\">CHECKOUT</button>\n\t\t  </div>\n\t\t");
+      document.querySelector('[data-action="BACK"]').addEventListener('click', function () {
+        return back();
+      });
+    } else {
+      cartDOM.insertAdjacentHTML('afterend', "\n\t\t  <div class=\"cart-footer\">\n\t\t\t<button class=\"btn btn--danger\" data-action=\"CLEAR_CART\">Clear Cart</button>\n\t\t\t<button class=\"btn btn--primary\" data-action=\"CHECKOUT\">CHECKOUT</button>\n\t\t  </div>\n\t\t");
+    }
+
     document.querySelector('[data-action="CLEAR_CART"]').addEventListener('click', function () {
       return clearCart();
     });
@@ -297,11 +315,25 @@ function checkout() {
 
 
 function countCartTotal() {
-  var cartTotal = 0;
-  cart.forEach(function (cartItem) {
-    return cartTotal += cartItem.quantity * cartItem.price;
-  });
-  document.querySelector('[data-action="CHECKOUT"]').innerText = "Pay $".concat(cartTotal);
+  var fileName = location.href.split("/").slice(-1);
+
+  if (fileName[0] === "cart.html") {
+    var cartTotal = 0;
+    cart.forEach(function (cartItem) {
+      return cartTotal += cartItem.quantity * cartItem.price;
+    });
+    document.querySelector('[data-action="CHECKOUT"]').innerText = "Pay $".concat(cartTotal);
+  } else {
+    var _cartTotal = 0;
+    cart.forEach(function (cartItem) {
+      return _cartTotal += cartItem.quantity * cartItem.price;
+    });
+    document.querySelector('[data-action="CHECKOUT"]').innerText = "Checkout: $".concat(_cartTotal);
+  }
+}
+
+function back() {
+  window.location.href = 'index.html';
 } // Збереження кошика в localStorage при змінах 
 
 
@@ -337,7 +369,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54409" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61433" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
