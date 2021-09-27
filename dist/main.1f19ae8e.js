@@ -158,7 +158,7 @@ addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
       handleActionButtons(addToCartButtonDOM, product);
     }
   });
-}); // Function to Insert Item to DOM
+}); // Вставляння коду в корзину
 
 function insertItemToDOM(product) {
   cartDOM.insertAdjacentHTML('beforeend', "\n    <div class=\"cart__item\">\n      <img class=\"cart__item__image\" src=\"".concat(product.image, "\" alt=\"").concat(product.name, "\" >\n      <h3 class=\"cart__item__name\">").concat(product.name, "</h3>\n      <h3 class=\"cart__item__price\">").concat(product.price, "</h3>\n      <button class=\"btn btn--primary btn--small").concat(product.quantity === 1 ? ' btn--danger' : '', "\" data-action=\"DECREASE_ITEM\">&minus;</button>\n      <h3 class=\"cart__item__quantity\">").concat(product.quantity, "</h3>\n      <button class=\"btn btn--primary btn--small\" data-action=\"INCREASE_ITEM\">&plus;</button>\n      <button class=\"btn btn--danger btn--small\" data-action=\"REMOVE_ITEM\">&times;</button>\n    </div>\n  "));
@@ -183,7 +183,7 @@ function handleActionButtons(addToCartButtonDOM, product) {
       });
     }
   });
-} // Function to increase item in cart
+} // Збільшення кількості товару в кошику
 
 
 function increaseItem(product, cartItemDOM) {
@@ -194,7 +194,7 @@ function increaseItem(product, cartItemDOM) {
       saveCart();
     }
   });
-} // Function to decrease item in cart
+} // Зменшення кількості товару в кошику
 
 
 function decreaseItem(product, cartItemDOM, addToCartButtonDOM) {
@@ -212,7 +212,7 @@ function decreaseItem(product, cartItemDOM, addToCartButtonDOM) {
       }
     }
   });
-} // Function to remove item from cart
+} // вилучити товар з кошика
 
 
 function removeItem(product, cartItemDOM, addToCartButtonDOM) {
@@ -230,12 +230,12 @@ function removeItem(product, cartItemDOM, addToCartButtonDOM) {
   if (cart.length < 1) {
     document.querySelector('.cart-footer').remove();
   }
-} // Function to add cart footer
+} // додавання footer до кошика 
 
 
 function addCartFooter() {
   if (document.querySelector('.cart-footer') === null) {
-    cartDOM.insertAdjacentHTML('afterend', "\n      <div class=\"cart-footer\">\n        <button class=\"btn btn--danger\" data-action=\"CLEAR_CART\">Clear Cart</button>\n        <button class=\"btn btn--primary\" data-action=\"CHECKOUT\">Pay</button>\n      </div>\n    ");
+    cartDOM.insertAdjacentHTML('afterend', "\n      <div class=\"cart-footer\">\n        <button class=\"btn btn--danger\" data-action=\"CLEAR_CART\">Clear Cart</button>\n        <button class=\"btn btn--primary\" data-action=\"CHECKOUT\">CHECKOUT</button>\n      </div>\n    ");
     document.querySelector('[data-action="CLEAR_CART"]').addEventListener('click', function () {
       return clearCart();
     });
@@ -243,51 +243,57 @@ function addCartFooter() {
       return checkout();
     });
   }
-}
+} // Очистити корзину
+
 
 function clearCart() {
-  document.querySelectorAll('.cart__item').forEach(function (cartItemDOM) {
-    cartItemDOM.classList.add('cart__item--removed');
-    setTimeout(function () {
-      return cartItemDOM.remove();
-    }, 250);
-  });
-  cart = [];
-  localStorage.removeItem('cart');
-  countCartTotal();
-  document.querySelector('.cart-footer').remove();
-  addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
-    addToCartButtonDOM.innerText = 'Add To Cart';
-    addToCartButtonDOM.disabled = false;
-  });
+  var fileName = location.href.split("/").slice(-1);
+
+  if (fileName[0] === "cart.html") {
+    window.location.href = 'index.html';
+    document.querySelectorAll('.cart__item').forEach(function (cartItemDOM) {
+      cartItemDOM.classList.add('cart__item--removed');
+      setTimeout(function () {
+        return cartItemDOM.remove();
+      }, 250);
+    });
+    cart = [];
+    localStorage.removeItem('cart');
+    countCartTotal();
+    document.querySelector('.cart-footer').remove();
+    addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
+      addToCartButtonDOM.innerText = 'Add To Cart';
+      addToCartButtonDOM.disabled = false;
+    });
+  } else {
+    document.querySelectorAll('.cart__item').forEach(function (cartItemDOM) {
+      cartItemDOM.classList.add('cart__item--removed');
+      setTimeout(function () {
+        return cartItemDOM.remove();
+      }, 250);
+    });
+    cart = [];
+    localStorage.removeItem('cart');
+    countCartTotal();
+    document.querySelector('.cart-footer').remove();
+    addToCartButtonsDOM.forEach(function (addToCartButtonDOM) {
+      addToCartButtonDOM.innerText = 'Add To Cart';
+      addToCartButtonDOM.disabled = false;
+    });
+  }
 }
-/*function checkout() {
-	let paypalFormHTML = `
-    <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="upload" value="1">
-      <input type="hidden" name="business" value="sachin0321@gmail.com">
-    `;
 
-	cart.forEach((cartItem, index) => {
-		++index;
-		paypalFormHTML += `
-        <input type="hidden" name="item_name_${index}" value="${cartItem.name}">
-        <input type="hidden" name="amount_${index}" value="${cartItem.price}">
-        <input type="hidden" name="quantity_${index}" value="${cartItem.quantity}">
-      `;
-	});
+function checkout() {
+  var fileName = location.href.split("/").slice(-1);
 
-	paypalFormHTML += `
-      <input type="submit" value="PayPal">
-    </form>
-    <div class="overlay"></div>
-  `;
-
-	document.querySelector('body').insertAdjacentHTML('beforeend', paypalFormHTML);
-	document.getElementById('paypal-form').submit();
-}*/
-// Function to calculate total amount
+  if (fileName[0] === "cart.html") {
+    window.location.href = 'index.html';
+    clearCart();
+    alert("Дякую за покупку");
+  } else {
+    window.location.href = 'cart.html';
+  }
+} // Обчислення загальної суми
 
 
 function countCartTotal() {
@@ -296,7 +302,7 @@ function countCartTotal() {
     return cartTotal += cartItem.quantity * cartItem.price;
   });
   document.querySelector('[data-action="CHECKOUT"]').innerText = "Pay $".concat(cartTotal);
-} // Function to save cart on changes
+} // Збереження кошика в localStorage при змінах 
 
 
 function saveCart() {
@@ -331,7 +337,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51304" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54409" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

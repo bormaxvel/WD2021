@@ -1,8 +1,7 @@
 'use strict';
 
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-
 const cartDOM = document.querySelector('.cart');
 const addToCartButtonsDOM = document.querySelectorAll('[data-action="ADD_TO_CART"]');
 
@@ -49,7 +48,7 @@ addToCartButtonsDOM.forEach(addToCartButtonDOM => {
 });
 
 
-// Function to Insert Item to DOM
+// Вставляння коду в корзину
 function insertItemToDOM(product) {
 	cartDOM.insertAdjacentHTML(
 		'beforeend',
@@ -137,7 +136,7 @@ function addCartFooter() {
 			`
       <div class="cart-footer">
         <button class="btn btn--danger" data-action="CLEAR_CART">Clear Cart</button>
-        <button class="btn btn--primary" data-action="CHECKOUT">Pay</button>
+        <button class="btn btn--primary" data-action="CHECKOUT">CHECKOUT</button>
       </div>
     `
 		);
@@ -149,47 +148,56 @@ function addCartFooter() {
 
 // Очистити корзину
 function clearCart() {
-	document.querySelectorAll('.cart__item').forEach(cartItemDOM => {
-		cartItemDOM.classList.add('cart__item--removed');
-		setTimeout(() => cartItemDOM.remove(), 250);
-	});
-
-	cart = [];
-	localStorage.removeItem('cart');
-	countCartTotal();
-	document.querySelector('.cart-footer').remove();
-
-	addToCartButtonsDOM.forEach(addToCartButtonDOM => {
-		addToCartButtonDOM.innerText = 'Add To Cart';
-		addToCartButtonDOM.disabled = false;
-	});
+	var fileName = location.href.split("/").slice(-1); 
+	if (fileName[0] === "cart.html"){
+		window.location.href = 'index.html';
+		document.querySelectorAll('.cart__item').forEach(cartItemDOM => {
+			cartItemDOM.classList.add('cart__item--removed');
+			setTimeout(() => cartItemDOM.remove(), 250);
+		});
+	
+		cart = [];
+		localStorage.removeItem('cart');
+		countCartTotal();
+		document.querySelector('.cart-footer').remove();
+	
+		addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+			addToCartButtonDOM.innerText = 'Add To Cart';
+			addToCartButtonDOM.disabled = false;
+		});
+	}
+	else{
+		document.querySelectorAll('.cart__item').forEach(cartItemDOM => {
+			cartItemDOM.classList.add('cart__item--removed');
+			setTimeout(() => cartItemDOM.remove(), 250);
+		});
+	
+		cart = [];
+		localStorage.removeItem('cart');
+		countCartTotal();
+		document.querySelector('.cart-footer').remove();
+	
+		addToCartButtonsDOM.forEach(addToCartButtonDOM => {
+			addToCartButtonDOM.innerText = 'Add To Cart';
+			addToCartButtonDOM.disabled = false;
+		});
+	}
+	
 }
-/*function checkout() {
-	let paypalFormHTML = `
-    <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_cart">
-      <input type="hidden" name="upload" value="1">
-      <input type="hidden" name="business" value="sachin0321@gmail.com">
-    `;
 
-	cart.forEach((cartItem, index) => {
-		++index;
-		paypalFormHTML += `
-        <input type="hidden" name="item_name_${index}" value="${cartItem.name}">
-        <input type="hidden" name="amount_${index}" value="${cartItem.price}">
-        <input type="hidden" name="quantity_${index}" value="${cartItem.quantity}">
-      `;
-	});
 
-	paypalFormHTML += `
-      <input type="submit" value="PayPal">
-    </form>
-    <div class="overlay"></div>
-  `;
-
-	document.querySelector('body').insertAdjacentHTML('beforeend', paypalFormHTML);
-	document.getElementById('paypal-form').submit();
-}*/
+function checkout() {
+	var fileName = location.href.split("/").slice(-1); 
+	if (fileName[0] === "cart.html"){
+		window.location.href = 'index.html';
+		clearCart();
+		alert("Дякую за покупку")
+	}
+	else{
+		window.location.href = 'cart.html';
+		
+	}
+}
 
 // Обчислення загальної суми
 function countCartTotal() {
