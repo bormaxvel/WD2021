@@ -8,8 +8,6 @@
     --color-danger-light: #f5b5b5;
     --min-width: 360px;
     --max-width: 1200px;
-    --base-font-family: Arial, Helvetica, sans-serif;
-    --fancy-font-family: 'Lobster', serif;
     --base-padding: 10px;
     font-size: 12px;
   }
@@ -32,7 +30,8 @@
     margin: 0;
     min-width: var(--min-width);
     color: var(--color-black);
-    font-family: var(--base-font-family);
+    font-family: Calibri;
+    background-color: #d9f5f1;
   }
   
   /* ----------------- Layout ----------------- */
@@ -63,7 +62,6 @@
   /* ----------------- Typography ----------------- */
   
   h1, h2, h3 {
-    font-family: var(--fancy-font-family);
     font-weight: 400;
     margin: 1rem auto;
   }
@@ -79,7 +77,7 @@
   /* ----------------- Buttons ----------------- */
   
   button {
-    font-family: var(--base-font-family);
+    font-family: arial;
     cursor: pointer;
     font-size: .95rem;
     border: none;
@@ -119,9 +117,21 @@
   .btn--danger:focus {
     outline: none;
     box-shadow: 0 0 0 5px var(--color-danger-light);
+  
   }
 
-  
+  .btn--back{
+    border: 2px solid var(--color-gray-light);
+    color: var(--color-black);
+    background: var(--color-white);
+  }
+
+  .btn--back:hover:hover:not(:disabled),
+  .btn--back:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-gray-light);
+  }
+
   /* ----------------- Products ----------------- */
   
   .products {
@@ -150,6 +160,7 @@
   
   .product:hover {
     border-style: solid;
+    background-color: var(--color-white);
   }
   
   .product__price:before {
@@ -165,25 +176,6 @@
   @media screen and (min-width: 600px) {
     .product__image {
       max-width: 100px;
-    }
-  }
-  
-  .product:hover .product__image {
-    animation: .5s shake-product-image;
-  }
-  
-  @keyframes shake-product-image {
-    25% {
-      transform: rotate(-10deg);
-    }
-    50% {
-      transform: rotate(10deg);
-    }  
-    75% {
-      transform: rotate(-10deg);
-    }
-    100% {
-      transform: rotate(0deg);
     }
   }
   
