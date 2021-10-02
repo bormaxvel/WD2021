@@ -4,62 +4,23 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=360, initial-scale=1">
-	<title>Shopping Cart</title>
-	<link rel="stylesheet" href="style.scss">
+	<title>Fetching</title>
+	<link rel="stylesheet" href="style.sass">
 </head>
 
 <body>
-	<main class="main-container">
-
-		<section class="section">
-			<h2 class="text-center">Послуги по копірайту від Максима</h2>
-			<div class="products">
-				<div class="product">
-					<img class="product__image" src="img/1.png" alt="alt">
-					<h2 class="product__name">Ідея курсової</h2>
-					<h3 class="product__price">10.00</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-				<div class="product">
-					<img class="product__image" src="img/2.png" alt="alt">
-					<h2 class="product__name">Курсова</h2>
-					<h3 class="product__price">100.00</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-				<div class="product">
-					<img class="product__image" src="img/3.png" alt="alt">
-					<h2 class="product__name">Лабораторна</h2>
-					<h3 class="product__price">10.00</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-				<div class="product">
-					<img class="product__image" src="img/4.png" alt="alt">
-					<h2 class="product__name">Звичайне дз</h2>
-					<h3 class="product__price">5.50</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-				<div class="product">
-					<img class="product__image" src="img/5.png" alt="alt">
-					<h2 class="product__name">Усунути Нку</h2>
-					<h3 class="product__price">5.00</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-				<div class="product">
-					<img class="product__image" src="img/6.png" alt="alt">
-					<h2 class="product__name">Модуль Мат.</h2>
-					<h3 class="product__price">30.00</h3>
-					<button class="btn btn--primary" data-action="ADD_TO_CART">Add To Cart</button>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<h2 class="text-center">Ціна</h2>
-			<div class="cart"></div>
-		</section>
-
-	</main>
-
+	<div class="container">
+	<h1>Openweather</h1>
+	<div class="card">
+		<div class="input">
+			<input type="text" placeholder="Enter the city" class="input_text" value="Starokostiantyniv">
+			<input type="submit" value="Submit" class="submit" id="send">
+		</div>
+		<h1 class="name" id="name"></h1>
+		<p class="temp"></p>
+		<p class="desc"></p>
+	  </div>
+	</div>
 	<script src="main.js"></script>
 </body>
 
