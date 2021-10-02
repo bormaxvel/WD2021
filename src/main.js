@@ -29,3 +29,46 @@ fetching();
 button.addEventListener('click', function(name){
   fetching();
 })
+/////-------------------------------------------------------------------------
+let lst = document.querySelector('.list');
+let lels = ""
+function fetching2(){
+  fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(ldata => {
+      console.log(ldata);
+      for (let i = 0; i < 5; i++) {
+        let l = ldata[i]
+        lels += "<li><b>" + l.id + ") Bug: </b>" + l.title + "<br><b>How to fix: </b>" + l.body + "<br>"
+      }
+      lst.innerHTML = lels
+})}
+
+
+
+
+fetching2()
+
+
+
+
+
+
+/////-------------------------------------------------------------------------
+var tbl = document.querySelector('.table');
+var tablecontent = ""
+element = document.querySelector("tbtn");
+console.log(element)
+function fetching3(){
+  fetch('data.json')
+    .then(response => response.json())
+    .then(tdata => {
+      console.log(tdata);
+      for (let i = 0; i < 4; i++) {
+        tablecontent += "<tr><td>" + tdata[i].name + "</td><td>" + tdata[i].price + "</td><td>" + tdata[i].quantity + "</td></tr>"
+      }
+      tbl.innerHTML = "<tr><th>Name</th><th>Price</th><th>Quantity</th></tr>" + tablecontent;
+      
+})}
+
+fetching3()

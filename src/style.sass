@@ -14,13 +14,15 @@ body
 h1
     color: $gray
 .container
-    padding: 5%
+    padding-top: 100px
     display: flex
     flex-direction: column
     align-items: center
 
 .card
-    width: max-content
+    width: 50%
+    min-width: 350px
+    max-width: 600px
     border: dashed 3px $gray
     border-radius: 10px
     font-size: 20px
@@ -44,3 +46,23 @@ h1
     p
         margin-top: 15px
 
+table
+    border-collapse: collapse
+    margin: 25px 0
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+    td
+
+        text-align: center
+th, td
+    padding: 5px
+table, th, td
+    border: 1px solid black
+
+#second
+    h1
+        margin-bottom: 25px
+    .list
+        li
+            list-style: none
+            margin-bottom: 15px
+            font-size: 15px

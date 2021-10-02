@@ -143,7 +143,48 @@ function fetching() {
 fetching();
 button.addEventListener('click', function (name) {
   fetching();
-});
+}); /////-------------------------------------------------------------------------
+
+var lst = document.querySelector('.list');
+var lels = "";
+
+function fetching2() {
+  fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
+    return response.json();
+  }).then(function (ldata) {
+    console.log(ldata);
+
+    for (var i = 0; i < 5; i++) {
+      var l = ldata[i];
+      lels += "<li><b>" + l.id + ") Bug: </b>" + l.title + "<br><b>How to fix: </b>" + l.body + "<br>";
+    }
+
+    lst.innerHTML = lels;
+  });
+}
+
+fetching2(); /////-------------------------------------------------------------------------
+
+var tbl = document.querySelector('.table');
+var tablecontent = "";
+element = document.querySelector("tbtn");
+console.log(element);
+
+function fetching3() {
+  fetch('data.json').then(function (response) {
+    return response.json();
+  }).then(function (tdata) {
+    console.log(tdata);
+
+    for (var i = 0; i < 4; i++) {
+      tablecontent += "<tr><td>" + tdata[i].name + "</td><td>" + tdata[i].price + "</td><td>" + tdata[i].quantity + "</td></tr>";
+    }
+
+    tbl.innerHTML = "<tr><th>Name</th><th>Price</th><th>Quantity</th></tr>" + tablecontent;
+  });
+}
+
+fetching3();
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -172,7 +213,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57787" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52487" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
