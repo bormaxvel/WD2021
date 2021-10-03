@@ -13,8 +13,9 @@ body
     color: $black
 h1
     color: $gray
+
+
 .container
-    padding-top: 100px
     display: flex
     flex-direction: column
     align-items: center
@@ -30,6 +31,8 @@ h1
     flex-direction: column
     align-items: center
     padding: 35px
+
+
     h1
         color: $red
         font-size: 30px
@@ -43,6 +46,7 @@ h1
         &:hover
             background-color: $gray
             color: $white
+            cursor: pointer
     p
         margin-top: 15px
 
@@ -66,3 +70,61 @@ table, th, td
             list-style: none
             margin-bottom: 15px
             font-size: 15px
+
+.differ
+    width: 70%
+    min-width: 350px
+    max-width: 900px
+    margin: 50px 0 50px 0
+    margin-left: auto
+    margin-right: auto
+    border-bottom: 15px dotted $black
+
+.differ#last
+    margin: 50px 0 10px 0
+    width: 100%
+    max-width: 100%
+
+footer
+  padding: 0 5% 0 5%
+  display: flex
+  justify-content: space-between
+  
+  font-size: 15px
+  margin: 20px
+  a
+    text-decoration: none
+    color: $red
+    margin: 0 15px
+    &:hover
+      font-weight: bold
+      text-transform: uppercase
+      color: $red
+
+
+#gianttext
+    font-size: 60px
+    text-align: center
+    margin: 50px 0 100px
+    font-family: Comic Sans MS
+
+#c1
+    background-image: url(img/1.jpg)
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+#c2
+    background-image: url(img/2.jpg)
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+#c3
+    background-image: url(img/3.jpg)
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover

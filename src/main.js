@@ -29,7 +29,7 @@ fetching();
 button.addEventListener('click', function(name){
   fetching();
 })
-/////-------------------------------------------------------------------------
+/////-------------------------------------------------------------------------/////
 let lst = document.querySelector('.list');
 let lels = ""
 function fetching2(){
