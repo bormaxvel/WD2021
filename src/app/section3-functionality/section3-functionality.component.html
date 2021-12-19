@@ -1,11 +1,17 @@
 <div class="section" id="Third">
     <div class="block">
         <h1>Functs</h1>
-        <form>      
-            <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-            <input name="email" type="text" class="feedback-input" placeholder="Email" />
-            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+        <form (submit)="onSubmit()">      
+            <input name="name" type="text" id="inputName" class="feedback-input" placeholder="Name" />   
+            <input name="email" type="text" id="inputEmail" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" id="inputText" placeholder="Comment"></textarea>
             <input type="submit" value="SUBMIT"/>
+            <div class="answer">
+                Дякуємо, замовлення оформлено на {{inputName$}}, ваш Email: {{inputEmail$}}, ваше замовлення: {{inputText$}}. Бажаємо вам гарного дня!
+            </div>
+            
         </form>
+        
     </div>
+    
 </div>

@@ -11,5 +11,13 @@ export class Section3FunctionalityComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  inputName$:string = "";
+  inputEmail$:string = "";
+  inputText$:string = "";
 
+  onSubmit(){
+    this.inputName$ = (<HTMLInputElement>document.getElementById("inputName")).value;
+    this.inputEmail$ = (<HTMLInputElement>document.getElementById("inputEmail")).value;
+    this.inputText$ = (<HTMLInputElement>document.getElementById("inputText")).value;
+  }
 }
