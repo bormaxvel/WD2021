@@ -145,28 +145,36 @@ footer
   h1
     margin-bottom: 20px
 
-  .card
+  .cards
     display: flex
-    align-items: center
-    flex-direction: column
-    width: 250px
-    min-height: 250px
-    max-height: 500px
-    height: auto
-    border-radius: 2px
-    background-color: $realwhite
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
-    text-align: center
-    margin: 20px
-    padding: 0px 0px 7px 0px
-    &:hover
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+    justify-content: space-around
+    align-items: flex-start
+    width: 100%
+
+    .card
+      display: flex
+      align-items: center
+      flex-direction: column
+      width: 250px
+      min-height: 250px
+      max-height: 500px
+      height: auto
+      border-radius: 2px
+      background-color: $realwhite
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+      text-align: center
+      margin: 20px
+      padding: 0px 0px 7px 0px
+      &:hover
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+
     .card-img
       height: 100px
       width: 100%
       margin-bottom: 10px
       object-fit: cover
       border-radius: 2px 2px 0 0
+
 
     .card-title
       font-size: 24px
@@ -177,27 +185,19 @@ footer
       margin-right: 5px
       margin-left: 5px
 
+
     .bordertop
       border-top: 2px dashed $main1
     #invisible
       display: none
+      
 
     .moreinfobtn
-      width: 35px
+      width: 20px
       height: 12px
       cursor: pointer
       &:hover
-        width: 40px
-  .cards
-    display: flex
-    justify-content: space-around
-    align-items: flex-start
-    width: 100%
-  #fullcard
-    width: 500px
-    .card-img
-      height: 200px
-    
+        width: 25px
 
 #Third
 
@@ -206,7 +206,7 @@ footer
     margin: 40px
 
   .feedback-input
-    color: $main1
+    color: $realwhite
     font-family: Arial, sans-serif
     font-size: 18px
     border-radius: 2px
@@ -234,14 +234,14 @@ footer
     border-radius: 2px
     border: 0
     cursor: pointer
-    color: $realwhite
+    color: white
     font-size: 24px
     padding-top: 10px
     padding-bottom: 10px
     transition: all 0.3s
     margin-top: -4px
     font-weight: 700
-
+    
     &:hover
       background: $main1
 

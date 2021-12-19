@@ -9,17 +9,20 @@ import { MainLogicService } from '../main-logic.service';
 })
 export class Section2CardsComponent implements OnInit {
 
-  constructor(private service:MainLogicService) { }
+  constructor(private service:MainLogicService) { 
+}
 
   info: InfoForCard[]=[];
 
   ngOnInit(): void {
-
+    this.changeVisibility(0);
+    this.changeVisibility(1);
+    this.changeVisibility(2);
     this.ToSubscribe();
   }
 
   visibility:string[] = ["","",""];
-  
+
 
   public ToSubscribe(): InfoForCard[]{
     this.service.getLaba().subscribe(
@@ -31,7 +34,21 @@ export class Section2CardsComponent implements OnInit {
     return (this.info);
   }
 
-  public changeNumberOfCurrentLab(n:number): void {
-    this.service.changeCount(n);
+  changeVisibility(n:number){
+    if (this.visibility[n] == ""){
+      this.visibility[n] = "invisible"
+      console.log(this.visibility[n])
+    }
+    else{
+      this.visibility[n] = ""
+      console.log(this.visibility[n])
+    }
+    
+
+    
   }
+
+
+  
+  
 }
