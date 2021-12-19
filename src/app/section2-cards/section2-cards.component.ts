@@ -43,9 +43,6 @@ export class Section2CardsComponent implements OnInit {
       this.visibility[n] = ""
       console.log(this.visibility[n])
     }
-    
-
-    
   }
 
 
