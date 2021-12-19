@@ -9,6 +9,7 @@ import { MainLogicService } from '../main-logic.service';
 export class Section3showinputsComponent implements OnInit {
 
   constructor(private service:MainLogicService) { }
+  inputs:string[] = this.service.inputs
 
   ngOnInit(): void {
   }
