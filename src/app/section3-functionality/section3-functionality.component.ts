@@ -18,6 +18,5 @@ export class Section3FunctionalityComponent implements OnInit {
     this.service.inputs[0] = (<HTMLInputElement>document.getElementById("name")).value;
     this.service.inputs[1] = (<HTMLInputElement>document.getElementById("email")).value;
     this.service.inputs[2] = (<HTMLInputElement>document.getElementById("text")).value;
-    
   }
 }
