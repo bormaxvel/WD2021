@@ -18,7 +18,7 @@ export class Section2CardsComponent implements OnInit {
     this.ToSubscribe();
   }
 
-  visibility:string[] = ["","",""];
+  
   
 
   public ToSubscribe(): InfoForCard[]{
@@ -34,4 +34,6 @@ export class Section2CardsComponent implements OnInit {
   public changeNumberOfCurrentLab(n:number): void {
     this.service.changeCount(n);
   }
+
+
 }

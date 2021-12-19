@@ -10,6 +10,7 @@ export class Section3FunctionalityComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.changeVisibility();
   }
   inputName$:string = "";
   inputEmail$:string = "";
@@ -19,5 +20,17 @@ export class Section3FunctionalityComponent implements OnInit {
     this.inputName$ = (<HTMLInputElement>document.getElementById("inputName")).value;
     this.inputEmail$ = (<HTMLInputElement>document.getElementById("inputEmail")).value;
     this.inputText$ = (<HTMLInputElement>document.getElementById("inputText")).value;
+    this.changeVisibility();
+  }
+
+
+  visibility:string = "";
+  changeVisibility(){
+    if (this.visibility == ""){
+      this.visibility = "invisible"
+    }
+    else{
+      this.visibility = ""
+    }
   }
 }

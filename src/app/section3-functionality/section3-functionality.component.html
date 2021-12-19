@@ -6,8 +6,8 @@
             <input name="email" type="text" id="inputEmail" class="feedback-input" placeholder="Email" />
             <textarea name="text" class="feedback-input" id="inputText" placeholder="Comment"></textarea>
             <input type="submit" value="SUBMIT"/>
-            <div class="answer">
-                Дякуємо, замовлення оформлено на {{inputName$}}, ваш Email: {{inputEmail$}}, ваше замовлення: {{inputText$}}. Бажаємо вам гарного дня!
+            <div class="answer {{visibility}}">
+                Ваше замовлення буже оформлено на {{inputName$}}, ваш Email: {{inputEmail$}}, послуга: {{inputText$}}. Якщо випідтверджуєте своє замовлення натмсніть SUBMIT ще раз.
             </div>
             
         </form>
