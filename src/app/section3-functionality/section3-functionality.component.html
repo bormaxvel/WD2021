@@ -1,10 +1,10 @@
 <div class="section" id="Third">
     <div class="block">
         <h1>Functs</h1>
-        <form>      
-            <input name="name" type="text" class="feedback-input" placeholder="Name" />   
-            <input name="email" type="text" class="feedback-input" placeholder="Email" />
-            <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+        <form (submit)="onSubmit()">      
+            <input name="name" type="text" id="name" class="feedback-input" placeholder="Name" />   
+            <input name="email" type="text" id="email" class="feedback-input" placeholder="Email" />
+            <textarea name="text" class="feedback-input" id="text" placeholder="Comment"></textarea>
             <input type="submit" value="SUBMIT"/>
         </form>
     </div>

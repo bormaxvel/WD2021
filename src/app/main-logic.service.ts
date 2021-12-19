@@ -17,4 +17,8 @@ export class MainLogicService {
   getLaba():Observable<InfoForCard[]>{
     return this.http.get<InfoForCard[]>(this.url);
   }
+
+
+
+  public inputs:string[] = ["", "", ""]
 }
