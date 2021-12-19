@@ -1,0 +1,23 @@
+
+{
+    "data": [
+    {
+        "name": "Новина 1",
+        "photo_link": "/assets/card1.jpg",
+        "shortDescription": "1) I am a very simple card. I am good at containing small bits of information.",
+        "info": "1) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+    },
+    {
+        "name": "Новина 2",
+        "photo_link": "/assets/card2.jpg",
+        "shortDescription": "2) I am a very simple card. I am good at containing small bits of information.",
+        "info": "2) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+    },
+    {
+        "name": "Новина 3",
+        "photo_link": "/assets/card3.jpg",
+        "shortDescription": "3) I am a very simple card. I am good at containing small bits of information.",
+        "info": "3) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+    }
+]
+}

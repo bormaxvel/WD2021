@@ -1,0 +1,30 @@
+<div class="section" id="Second">
+    <div class="block" id="block2">
+        <h1>Галерея</h1>
+        <div class="cards">
+            <div class="card">
+                <!-- <div class="card-img" id="card-img1"></div> -->
+                <img class="card-img" id="card-img1" src="{{info[0].photo_link}}" alt="">
+                <span class=card-title><strong>{{info[0].name}}</strong></span>
+                <p>{{info[0].shortDescription}}</p>
+                <img class="moreinfobtn" routerLink = "/cardInfo" (click) = "changeNumberOfCurrentLab(0)" src="\assets\more.png" alt="">
+            </div>
+            <div class="card">
+                <!-- <div class="card-img" id="card-img2"></div> -->
+                <img class="card-img" id="card-img1" src="{{info[1].photo_link}}" alt="">
+                <span class=card-title><strong>{{info[1].name}}</strong></span>
+                <p>{{info[1].shortDescription}}</p>
+                <img class="moreinfobtn" routerLink = "/cardInfo" (click) = "changeNumberOfCurrentLab(1)" src="\assets\more.png" alt="">
+            </div>
+            <div class="card">
+                <!-- <div class="card-img" id="card-img3"></div> -->
+                <img class="card-img" id="card-img1" src="{{info[2].photo_link}}" alt="">
+                <span class=card-title><strong>{{info[2].name}}</strong></span>
+                <p>{{info[2].shortDescription}}</p>
+                <img class="moreinfobtn" routerLink = "/cardInfo" (click) = "changeNumberOfCurrentLab(2)" src="\assets\more.png" alt="">
+            </div>
+            
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

@@ -1,0 +1,250 @@
+$realwhite: #ffffff
+$white: #E6E6E6
+$black: #181c22
+
+$main0: #2a3a39
+$main1: #455f5e
+$main2: #75a09e
+$main3: #b8f3f0
+$main4: #dcf7f5
+$windowwidth: 800px
+
+*
+  margin: 0
+  padding: 0
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)
+
+body
+  font-family: Helvetica, sans-serif
+  background-color: $white
+
+h1
+  font-size: 50px
+  color: $main0
+
+h2
+  font-size: 25px
+  color: $main1
+
+.freenavspace
+  height: 56px
+
+.section
+  display: flex
+  justify-content: center
+  align-items: center
+
+.block
+  max-width: 90%
+  margin-top: 100px
+  margin-bottom: 100px
+  display: flex
+  flex-direction: column
+  align-items: center
+
+#first
+  min-height: 700px
+
+  background-image: url("/assets/main.jpg")
+  background-position: center
+  background-repeat: no-repeat
+  background-size: cover
+
+footer
+  padding: 3px
+  background-color: $realwhite
+  display: flex
+  justify-content: center
+  border-top: solid 2px $black
+  margin-right: auto
+  margin-left: auto
+  span
+    font-size: 20px
+
+.header
+  background-color: $realwhite
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1)
+  position: fixed
+  width: 100%
+  z-index: 3
+  top: 0px
+  a
+    color: $main0
+
+  ul
+
+    list-style: none
+    overflow: hidden
+    background-color: $realwhite
+
+  li a
+    display: block
+    padding: 20px 20px
+    border-right: 1px solid $white
+    text-decoration: none
+
+    &:hover
+      background-color: $main4
+
+  .logo
+    display: block
+    float: left
+    font-size: 2em
+    padding: 10px 20px
+    text-decoration: none
+
+  .menu
+    clear: both
+    max-height: 0
+    transition: max-height .2s ease-out
+
+  .menu-icon
+    cursor: pointer
+    display: inline-block
+    float: right
+    min-height: 20px
+    padding: 10px 20px 10px 20px
+    border-radius: 5px
+    margin: 10px
+    position: relative
+    user-select: none
+    background-image: url("/assets/menu.png")
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+
+  .menu-btn
+    display: none
+
+    &:checked ~
+      .menu
+        max-height: 240px
+
+      .menu-icon
+        background-color: #d7dddd
+
+@media (min-width: $windowwidth)
+  .header
+    li
+      float: left
+
+      a
+        padding: 20px 30px
+
+    .menu
+      clear: none
+      float: right
+      max-height: none
+
+    .menu-icon
+      display: none
+
+  // Картки секція
+#Second
+
+  h1
+    margin-bottom: 20px
+
+  .card
+    display: flex
+    align-items: center
+    flex-direction: column
+    width: 250px
+    min-height: 250px
+    max-height: 500px
+    height: auto
+    border-radius: 2px
+    background-color: $realwhite
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+    text-align: center
+    margin: 20px
+    padding: 0px 0px 7px 0px
+    &:hover
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22)
+    .card-img
+      height: 100px
+      width: 100%
+      margin-bottom: 10px
+      object-fit: cover
+      border-radius: 2px 2px 0 0
+
+    .card-title
+      font-size: 24px
+      line-height: 48px
+    p
+      font-size: 15px
+      line-height: 30px
+      margin-right: 5px
+      margin-left: 5px
+
+    .bordertop
+      border-top: 2px dashed $main1
+    #invisible
+      display: none
+
+    .moreinfobtn
+      width: 35px
+      height: 12px
+      cursor: pointer
+      &:hover
+        width: 40px
+  .cards
+    display: flex
+    justify-content: space-around
+    align-items: flex-start
+    width: 100%
+  #fullcard
+    width: 500px
+    .card-img
+      height: 200px
+    
+
+#Third
+
+  form
+    max-width: 420px
+    margin: 40px
+
+  .feedback-input
+    color: $main1
+    font-family: Arial, sans-serif
+    font-size: 18px
+    border-radius: 2px
+    line-height: 22px
+    background-color: transparent
+    border: 3px solid $main2
+    transition: all 0.3s
+    padding: 13px
+    margin-bottom: 15px
+    width: 100%
+    box-sizing: border-box
+    outline: 0
+
+    &:focus
+      border: 3px solid $main1
+
+  textarea
+    height: 150px
+    line-height: 150%
+    resize: none
+
+  [type="submit"]
+    width: 100%
+    background: $main2
+    border-radius: 2px
+    border: 0
+    cursor: pointer
+    color: $realwhite
+    font-size: 24px
+    padding-top: 10px
+    padding-bottom: 10px
+    transition: all 0.3s
+    margin-top: -4px
+    font-weight: 700
+
+    &:hover
+      background: $main1
+
+@media screen and (max-width: $windowwidth)
+  .cards
+    flex-direction: column
