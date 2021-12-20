@@ -2,22 +2,22 @@
 {
     "data": [
     {
-        "name": "Новина 1",
+        "name": "Чемпіонка",
         "photo_link": "/assets/card1.jpg",
-        "shortDescription": "1) I am a very simple card. I am good at containing small bits of information.",
-        "info": "1) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+        "shortDescription": "Катерина Монзуль увійшла в п’ятірку найкращих арбітринь світу.",
+        "info": "Катерина Монзуль увійшла в п’ятірку найкращих арбітринь світу за 2021 рік І стала першою українкою, яка потрапила в елітну категорію арбітрів та арбітринь ФІФА."
     },
     {
-        "name": "Новина 2",
+        "name": "Колір року",
         "photo_link": "/assets/card2.jpg",
-        "shortDescription": "2) I am a very simple card. I am good at containing small bits of information.",
-        "info": "2) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+        "shortDescription": "Pantone представив головний колір 2022 року. Ним став відтінок...",
+        "info": "Pantone представив головний колір 2022 року – це барвінковий відтінок фіолетового, який називається Very Peri. Такий вибір у Pantone пояснюють стрімким розвитком креативних індустрій і метавсесвітів, а також глобальним впливом пандемії COVID–19"
     },
     {
-        "name": "Новина 3",
+        "name": "Святкування",
         "photo_link": "/assets/card3.jpg",
-        "shortDescription": "3) I am a very simple card. I am good at containing small bits of information.",
-        "info": "3) Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sit, similique a sunt voluptatibus consequatur blanditiis quidem accusamus officia repudiandae, adipisci dignissimos sequi reiciendis repellendus rem asperiores fugit sint fugiat!"
+        "shortDescription": "На Банковій відкрили новорічне містечко з ковзанкою і фудкортами.",
+        "info": "На Банковій відкрили новорічне містечко з ковзанкою і фудкортами. Також у містечку на Банковій традиційно працюватиме безкоштовна ковзанка. Для дітей з інвалідністю там проводитимуть інклюзивні тренування з тренером та за участю спортсменів-фігуристів, а для любителів хокею організовують майстер-класи від гравців київського хокейного клубу «Сокіл»."
     }
 ]
 }

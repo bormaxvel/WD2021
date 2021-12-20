@@ -1,13 +1,13 @@
 <div class="section" id="Third">
     <div class="block">
-        <h1>Functs</h1>
+        <h1>Call back</h1>
         <form (submit)="onSubmit()">      
             <input name="name" type="text" id="inputName" class="feedback-input" placeholder="Name" />   
-            <input name="email" type="text" id="inputEmail" class="feedback-input" placeholder="Email" />
+            <input name="email" type="text" id="inputEmail" class="feedback-input" placeholder="Phone" />
             <textarea name="text" class="feedback-input" id="inputText" placeholder="Comment"></textarea>
             <input type="submit" value="SUBMIT"/>
             <div class="answer {{visibility}}">
-                Ваше замовлення буже оформлено на {{inputName$}}, ваш Email: {{inputEmail$}}, послуга: {{inputText$}}. Якщо ви підтверджуєте своє замовлення натисніть SUBMIT ще раз.
+                Дякуємо за звернення, {{inputName$}}, ми вам передзвонимо за номером телефону: {{inputEmail$}}. Ваше повідомлення: {{inputText$}}. Натисніть SUBMIT ще раз для підтвердження.
             </div>
             
         </form>
